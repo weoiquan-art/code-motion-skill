@@ -7,7 +7,15 @@ JIN 用代码（Remotion）做视频的 Skill：经验文档＋可复用的代�
 
 ## 上传到 claude.ai
 
-把整个文件夹打包成 zip（或用发布的 `.skill` 文件），在 claude.ai 的 Skills 设置里上传。之后改了本仓库，要重新上传一次才生效。
+在 claude.ai 的 Skills 设置里上传 `jin-code-motion.skill`（就是 zip）。之后改了本仓库，要重新打包、重新上传一次才生效。
+
+重新打包（在 claude.ai 云端容器里，用 skill-creator 自带的脚本；`dist/` 不进仓库）：
+
+```bash
+rm -rf /tmp/pkg && mkdir -p /tmp/pkg/jin-code-motion
+git archive HEAD | tar -x -C /tmp/pkg/jin-code-motion
+cd <skill-creator 目录> && python3 -m scripts.package_skill /tmp/pkg/jin-code-motion <本仓库>/dist
+```
 
 ## 在 Claude Code 里用
 
