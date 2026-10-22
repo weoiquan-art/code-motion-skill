@@ -1,0 +1,6 @@
+node_modules
+dist
+.DS_Store
+.env
+# rendered films are committed on purpose with: git add -f out/<name>.mp4
+out
